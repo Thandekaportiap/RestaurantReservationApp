@@ -21,6 +21,10 @@ const SignupScreen = () => {
 
     const navigation = useNavigation();
 
+    const handleSignup = () => {
+        navigation.navigate('HomeTabs');
+    }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -74,7 +78,7 @@ const SignupScreen = () => {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={styles.signupButton}>
+          <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
             <Text style={styles.signupButtonText}>Sign up</Text>
           </TouchableOpacity>
 

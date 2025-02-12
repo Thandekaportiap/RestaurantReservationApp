@@ -20,6 +20,10 @@ const LoginScreen = () => {
 
     const navigation = useNavigation();
 
+    const handleLogin = () => {
+        navigation.navigate('HomeTabs');
+    }
+
   return (
     <SafeAreaView style={styles.container}>
        <View style={styles.content}>
@@ -67,7 +71,7 @@ const LoginScreen = () => {
             <Text style={styles.forgotPasswordText} numberOfLines={1}>Forget password?</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.loginButton}>
+          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
             <Text style={styles.loginButtonText}>Log In</Text>
           </TouchableOpacity>
 
