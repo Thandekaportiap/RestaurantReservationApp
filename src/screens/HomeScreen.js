@@ -20,6 +20,36 @@ export const Colors = {
 
 const RestaurantScreen = () => {
   const locations = ['Sydney', 'Melbourne', 'Brisbane', 'Sydney1', 'Melbourne1', 'Brisbane1'];
+  const restaurants = [
+    {
+      name: 'Momofuku Seiobo',
+      image: require('../../assets/restaurant.webp'),
+      rating: '4.5/5.0',
+      deliveryTime: '30-45 mins',
+      fee: 'Free',
+    },
+    {
+      name: 'Quay',
+      image: require('../../assets/table2.webp'),
+      rating: '4.7/5.0',
+      deliveryTime: '20-35 mins',
+      fee: '$5.99',
+    },
+    {
+      name: 'Attica',
+      image: require('../../assets/table1.jpg'),
+      rating: '4.6/5.0',
+      deliveryTime: '25-40 mins',
+      fee: 'Free',
+    },
+    {
+      name: 'Brae',
+      image: require('../../assets/table4.jpeg'),
+      rating: '4.8/5.0',
+      deliveryTime: '15-30 mins',
+      fee: '$3.99',
+    },
+  ];
   
   return (
     <SafeAreaView style={styles.container}>
@@ -53,30 +83,28 @@ const RestaurantScreen = () => {
 
         <View style={styles.restaurantsSection}>
           <Text style={styles.sectionTitle}>Restaurants</Text>
-          
-          <View style={styles.restaurantCard}>
-            <Image
-              source={require('../../assets/restaurant.webp')}
-              style={styles.restaurantImage}
-            />
-            <View style={styles.restaurantInfo}>
-              <Text style={styles.restaurantName}>Momofuku Seiobo</Text>
-              <View style={styles.restaurantMetrics}>
-                <View style={styles.metric}>
-                  <Ionicons name="star" size={16} color="#FFD700" />
-                  <Text style={styles.metricText}>4.5/5.0 Stars</Text>
-                </View>
-                <View style={styles.metric}>
-                  <Ionicons name="time-outline" size={16} color={Colors.primary} />
-                  <Text style={styles.metricText}>30-45 mins</Text>
-                </View>
-                <View style={styles.metric}>
-                  <Ionicons name="bicycle-outline" size={16} color={Colors.primary} />
-                  <Text style={styles.metricText}>Free</Text>
+          {restaurants.map((restaurant, index) => (
+            <View key={index} style={styles.restaurantCard}>
+              <Image source={restaurant.image} style={styles.restaurantImage} />
+              <View style={styles.restaurantInfo}>
+                <Text style={styles.restaurantName}>{restaurant.name}</Text>
+                <View style={styles.restaurantMetrics}>
+                  <View style={styles.metric}>
+                    <Ionicons name="star" size={16} color="#FFD700" />
+                    <Text style={styles.metricText}>{restaurant.rating} Stars</Text>
+                  </View>
+                  <View style={styles.metric}>
+                    <Ionicons name="time-outline" size={16} color={Colors.primary} />
+                    <Text style={styles.metricText}>{restaurant.deliveryTime}</Text>
+                  </View>
+                  <View style={styles.metric}>
+                    <Ionicons name="bicycle-outline" size={16} color={Colors.primary} />
+                    <Text style={styles.metricText}>{restaurant.fee}</Text>
+                  </View>
                 </View>
               </View>
             </View>
-          </View>
+          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -125,7 +153,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     paddingHorizontal: 20,
     paddingVertical: 10,
-    borderRadius: 20,
+    borderRadius: 5,
     marginRight: 10,
   },
   locationText: {
