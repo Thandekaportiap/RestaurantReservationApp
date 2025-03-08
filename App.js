@@ -9,6 +9,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import RestaurantDetailScreen from './src/screens/RestaurantDetailScreen';
 import ReservationScreen from './src/screens/ReservationScreen';
+import AdminDashboard from './src/screens/AdminDashboard';
 
 import WelcomeScreen from './src/screens/Welcome';
 import LoginScreen from './src/screens/Login';
@@ -51,6 +52,7 @@ const BottomTabs = () => (
     <Tab.Screen name="Dashboard" component={DashboardScreen} options={{ headerShown: false }} />
     <Tab.Screen name="RestaurantDetail" component={RestaurantDetailScreen} options={{ headerShown: false }} />
     <Tab.Screen name="Reservation" component={ReservationScreen} options={{ headerShown: false }} />
+    {/* <Tab.Screen name='AdminDashboard' component={AdminDashboard} options={{ headerShown: false }} /> */}
   </Tab.Navigator>
 );
 
@@ -66,6 +68,7 @@ export default function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Signup" component={SignupScreen} />
         <Stack.Screen name="HomeTabs" component={BottomTabs} options={{ headerShown: false }} />
+        <Stack.Screen name="AdminDashboard" component={AdminDashboard} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

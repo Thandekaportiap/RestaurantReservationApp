@@ -20,6 +20,11 @@ const WelcomeScreen = () => {
     const handleSignup = () => {
       navigation.navigate('Signup');
     };
+
+    const handleAdminLogin = () => {
+      navigation.navigate('AdminDashboard');
+    };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -47,6 +52,10 @@ const WelcomeScreen = () => {
 
   <TouchableOpacity style={styles.signupButton} onPress={handleSignup}>
     <Text style={styles.signupButtonText}>Sign up</Text>
+  </TouchableOpacity>
+
+  <TouchableOpacity style={styles.loginButton} onPress={handleAdminLogin}>
+    <Text style={styles.loginButtonText}>Admin Login</Text>
   </TouchableOpacity>
 </View>
 
