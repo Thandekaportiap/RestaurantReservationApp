@@ -23,10 +23,11 @@ const sampleBookings = [
 ];
 
 const sampleRestaurants = [
-  { id: '1', name: 'Hubert Restaurant', cuisine: 'French', address: '123 Main St', image: 'https://via.placeholder.com/100' },
-  { id: '2', name: 'La Vita', cuisine: 'Italian', address: '456 Oak Ave', image: 'https://via.placeholder.com/100' },
-  { id: '3', name: 'Sakura', cuisine: 'Japanese', address: '789 Pine Blvd', image: 'https://via.placeholder.com/100' },
+  { id: '1', name: 'Hubert Restaurant', cuisine: 'French', address: '123 Main St', image: require('../../assets/table1.jpg') },
+  { id: '2', name: 'La Vita', cuisine: 'Italian', address: '456 Oak Ave', image: require('../../assets/table2.webp') },
+  { id: '3', name: 'Sakura', cuisine: 'Japanese', address: '789 Pine Blvd', image: require('../../assets/table4.jpeg') },
 ];
+
 
 const AdminDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -101,7 +102,9 @@ const AdminDashboard = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <View style={styles.restaurantCard}>
-            <Image source={{uri: item.image}} style={styles.restaurantImage} />
+            {/* <Image source={{uri: item.image}} style={styles.restaurantImage} /> */}
+            <Image source={item.image} style={styles.restaurantImage} />
+
             <Text style={styles.restaurantName}>{item.name}</Text>
             <Text style={styles.restaurantDetail}>{item.cuisine}</Text>
           </View>
@@ -126,7 +129,7 @@ const AdminDashboard = () => {
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <View style={styles.restaurantListItem}>
-            <Image source={{uri: item.image}} style={styles.restaurantListImage} />
+            <Image source={item.image} style={styles.restaurantListImage} />
             <View style={styles.restaurantListInfo}>
               <Text style={styles.restaurantListName}>{item.name}</Text>
               <Text style={styles.restaurantListDetail}>{item.cuisine}</Text>
